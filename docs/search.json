@@ -1,0 +1,9 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Quarto example",
+    "section": "",
+    "text": "viewof bill_length_min = Inputs.range(\n  [32, 70], \n  {value: 35, step: 1, label: \"Bill length (min):\"}\n)\nviewof islands = Inputs.checkbox(\n  [\"Torgersen\", \"Biscoe\", \"Dream\"], \n  { value: [\"Torgersen\", \"Biscoe\"], \n    label: \"Islands:\"\n  }\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPlotData\n\n\n\ndotplot.legend(\"color\")\n\n\n\n\n\n\n\ndotplot = Plot.dot(data, {x: \"bill_length_mm\", y: \"bill_depth_mm\", stroke: \"sex\"}).plot()\n\n\n\n\n\n\n\n\n\n\n\ndata = FileAttachment(\"palmer-penguins.csv\").csv({ typed: true })"
+  }
+]
