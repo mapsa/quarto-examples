@@ -1,3 +1,26 @@
 project:
     type: website
     output-dir: docs
+
+execute:
+  echo: false
+
+website:
+  title: "Late and Slow Payments"
+  repo-url: https://github.com/gofcoe/latepayments
+  repo-actions: [edit, issue]
+  page-navigation: true
+  execute:
+    echo: false
+  navbar:
+    left:
+      - href: 2-svg-slider.qmd
+        text: SVG Slider
+      - href: 1-palmer-penguins.qmd
+        text: Palmer Penquin
+format:
+  html:
+    toc: false
+    echo: false
+    keep-hidden: true
+    code-tools: true

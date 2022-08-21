@@ -1,0 +1,108 @@
+---
+title: "SVG slider"
+format:
+  html:
+    toc: false
+    echo: false
+    keep-hidden: true
+    code-tools: false
+    code-fold: false
+    # page-layout: custom
+execute:
+  echo: false
+---
+
+
+::: {.panel-tabset}
+
+## Income
+
+```{ojs}
+import {slider} from "@jashkenas/inputs"
+```
+
+```{ojs}
+viewof income = {
+  const form = slider({
+    min: 0, 
+    max: 56, 
+    step: 8,
+    value: 0,
+    title: "Week"
+    // getValue: n => 'w' + n.value + 'w' + ( parseFloat(n.value) + 4)
+    });
+
+  const files = new Map([
+    ['0', FileAttachment("maps/uk-pa-income-post-w0w4-map.svg")],
+    ['8', FileAttachment("maps/uk-pa-income-post-w8w12-map.svg")],
+    ['16', FileAttachment("maps/uk-pa-income-post-w16w20-map.svg")],
+    ['24', FileAttachment("maps/uk-pa-income-post-w24w28-map.svg")],
+    ['32', FileAttachment("maps/uk-pa-income-post-w32w36-map.svg")],
+    ['40', FileAttachment("maps/uk-pa-income-post-w40w44-map.svg")],
+    ['48', FileAttachment("maps/uk-pa-income-post-w48w52-map.svg")],
+    ['56', FileAttachment("maps/uk-pa-income-post-w56w60-map.svg")]
+  ]);
+
+  return Object.defineProperty(html`<div>${form}`, 'value', {get() { return files.get(form.value.toString()) }});
+}
+income.image()
+```
+
+## Expenditure
+
+```{ojs}
+viewof expenditure = {
+  const form = slider({
+    min: 0, 
+    max: 56, 
+    step: 8,
+    value: 0,
+    title: "Week"
+    // getValue: n => 'w' + n.value + 'w' + ( parseFloat(n.value) + 4)
+    });
+
+  const files = new Map([
+    ['0', FileAttachment("maps/uk-pa-expenditure-post-w0w4-map.svg")],
+    ['8', FileAttachment("maps/uk-pa-expenditure-post-w8w12-map.svg")],
+    ['16', FileAttachment("maps/uk-pa-expenditure-post-w16w20-map.svg")],
+    ['24', FileAttachment("maps/uk-pa-expenditure-post-w24w28-map.svg")],
+    ['32', FileAttachment("maps/uk-pa-expenditure-post-w32w36-map.svg")],
+    ['40', FileAttachment("maps/uk-pa-expenditure-post-w40w44-map.svg")],
+    ['48', FileAttachment("maps/uk-pa-expenditure-post-w48w52-map.svg")],
+    ['56', FileAttachment("maps/uk-pa-expenditure-post-w56w60-map.svg")]
+  ]);
+
+  return Object.defineProperty(html`<div>${form}`, 'value', {get() { return files.get(form.value.toString()) }});
+}
+expenditure.image()
+```
+
+## Cash
+
+```{ojs}
+viewof cash = {
+  const form = slider({
+    min: 0, 
+    max: 56, 
+    step: 8,
+    value: 0,
+    title: "Week"
+    // getValue: n => 'w' + n.value + 'w' + ( parseFloat(n.value) + 4)
+    });
+
+  const files = new Map([
+    ['0', FileAttachment("maps/uk-pa-cash-post-w0w4-map.svg")],
+    ['8', FileAttachment("maps/uk-pa-cash-post-w8w12-map.svg")],
+    ['16', FileAttachment("maps/uk-pa-cash-post-w16w20-map.svg")],
+    ['24', FileAttachment("maps/uk-pa-cash-post-w24w28-map.svg")],
+    ['32', FileAttachment("maps/uk-pa-cash-post-w32w36-map.svg")],
+    ['40', FileAttachment("maps/uk-pa-cash-post-w40w44-map.svg")],
+    ['48', FileAttachment("maps/uk-pa-cash-post-w48w52-map.svg")],
+    ['56', FileAttachment("maps/uk-pa-cash-post-w56w60-map.svg")]
+  ]);
+
+  return Object.defineProperty(html`<div>${form}`, 'value', {get() { return files.get(form.value.toString()) }});
+}
+cash.image()
+```
+:::

@@ -1,52 +1,8 @@
 ---
-title: "Palmer Penguins"
-format:
-  html:
-    toc: false
-    echo: false
-    keep-hidden: true
-    code-tools: true
+title: "Dashboard prototype"
+
 ---
 
-A simple example based on Allison Horst's [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/) dataset. Here we look at how penguin body mass varies across both sex and species (use the provided inputs to filter the dataset by bill length and island):
 
-```{ojs}
-//| panel: input
-viewof bill_length_min = Inputs.range(
-  [32, 70], 
-  {value: 39.1, step: 1, label: "Bill length (min):"}
-)
-viewof islands = Inputs.checkbox(
-  ["Torgersen", "Biscoe", "Dream"], 
-  { value: ["Torgersen", "Biscoe","Dream"], 
-    label: "Islands:"
-  }
-)
-```
-
-::: {.panel-tabset}
-
-## Plot
-
-```{ojs}
-dotplot.legend("color")
-dotplot = Plot.dot(filtered, {x: "bill_length_mm", y: "bill_depth_mm", stroke: "sex"}).plot()
-```
-
-## Data
-
-```{ojs}
-Inputs.table(filtered)
-```
-
-```{ojs}
-data = FileAttachment("palmer-penguins.csv").csv({ typed: true })
-```
-
-```{ojs}
-filtered = data.filter(function(input) {
-  return islands.includes(input.island) &&
-         bill_length_min < input.bill_length_mm;
-})
-```
-:::
+<!-- {{< include _1-palmer-penguins.qmd >}} -->
+<!-- {{< include 2-svg-slider.qmd >}} -->
